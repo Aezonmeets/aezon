@@ -1,0 +1,57 @@
+const { Client, Intents, MessageActionRow, MessageButton } = require('discord.js');
+const client = new Client({ intents: [32768, 1] });
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('interactionCreate', async (interaction) => {
+  try {
+    if (interaction.isButton()) {
+      if (interaction.customId === 'verify_button') {
+        const roleID = '1145312667083485214'; // Replace with your role ID
+        const role = interaction.guild.roles.cache.get(roleID);
+        const member = interaction.member;
+
+        if (role && member) {
+          await member.roles.add(role);
+          await interaction.reply({
+            content: 'You have been verified and received the role!',
+            ephemeral: true
+          });
+
+          const backupServerLink = 'https://discord.gg/c9hfP64fMg'; // Replace with your backup server link
+
+          const row = new MessageActionRow().addComponents(
+            new MessageButton()
+              .setLabel('Join Backup Server')
+              .setURL(backupServerLink)
+              .setStyle('LINK')
+          );
+
+          await interaction.followUp({
+            content: 'Please join the backup server for further access:',
+            components: [row]
+          });
+        }
+      }
+    } else if (interaction.isCommand() && interaction.commandName === 'hello') {
+      const verifyRow = new MessageActionRow().addComponents(
+        new MessageButton()
+          .setCustomId('verify_button')
+          .setLabel('Verify')
+          .setStyle('PRIMARY')
+      );
+
+      await interaction.reply({
+        content: 'Click the button to verify:',
+        components: [verifyRow]
+      });
+    }
+  } catch (error) {
+    console.error('An error occurred during interaction:', error);
+    await interaction.reply({ content: 'An error occurred while processing the command', ephemeral: true });
+  }
+});
+
+client.login('MTE2NTYwNjQ2MDgwNjQxODU2Mw.Ggp6Bd.OymNd0fQ6PWDoW1S1lvr5sUdui_R5lnDaXUxzo'); // Replace YOUR_TOKEN with your bot token

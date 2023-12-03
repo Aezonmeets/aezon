@@ -1,0 +1,16 @@
+TYPEWRITER ANIMATION
+
+
+import sys
+import time
+
+
+def typewriter_animation(text, speed=0.1):
+    for char in text: 
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(speed)
+
+text = "hllo world"
+
+typewriter_animation(text)

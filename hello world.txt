@@ -1,0 +1,89 @@
+1. 5
+2. PYTHON
+3. 5
+=================
+
+#CODING TIME
+def main():
+  print()
+  print("Alright! it seems like you are one of our employee!")
+  print("==============================================")
+  print()
+  print("            ❤ BONUS CALCULATOR ❤")
+  print()
+  print("==============================================")
+  salary = int(input("enter your salary: "))
+  rating = int(input("enter your rating: "))
+
+  if rating == 1:
+    print("==============================================")
+    print()
+    print(fname + " ",lname ,"Your salary bonus is ₱", salary * .10,"!!")
+    print()
+    print("==============================================")
+  elif rating == 2:
+    print("==============================================")
+    print()
+    print(fname + " ",lname ,"Your salary bonus is ₱", salary * .6,"!!")
+    print()
+    print("==============================================")
+  elif rating == 3:
+    print("==============================================")
+    print()
+    print(fname + " ",lname +"Your salary bonus is ₱", salary * .3,"!!")
+    print()
+    print("==============================================")
+  elif rating == 4:
+    print("==============================================")
+    print()
+    print(fname + " ",lname +" Your salary bonus is ₱", salary * .0,"!!", " aw it seems like u dont have a bonus :( ")
+    print()
+    print("==============================================")
+  else:
+    print("==============================================")
+    print()
+    print("Invalid Rating")
+    print()
+    print("==============================================")
+
+
+
+
+
+fname = input("enter your first name: ")
+lname = input("enter your last name: ")
+
+main()
+
+=========================================================================
+
+B. Activity 3: Check for understanding
+Answers:
+1. 
+x = 50
+y = 50
+z = 50
+a = 50
+if x == y and z == a:
+    print("Python")
+
+2.)
+x = 50
+y = 50
+z = 56
+a = 50
+if x == y or z == a:
+    print("Python")
+
+3.) 
+message = "One is equal to one!" if 1 == 1 else "Not equal to one"
+print(message)
+
+4.)
+kkk = "Yes" if 1 == 1 else "No"
+print(kkk)
+
+5.)
+if 1 == 1:
+  print("One is equal to one!")
+
